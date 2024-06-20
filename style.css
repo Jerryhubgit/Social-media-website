@@ -1,0 +1,483 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    /* transition: all 300ms ease; */
+}
+
+:root{
+    --button_color: purple;
+    --form_input_color: rgb(241, 239, 239);
+    --white_color: white;
+    --black_color: black;
+    --red_color: red;
+    --light_grey: rgba(167, 162, 162, 0.288);
+
+    --containerPadding: 15px;
+    --container_radius: 10px;
+    --border: 1px solid rgba(173, 172, 172, 0.5);
+}
+
+/* ==================General Settings======================== */
+i{
+    font-size: 18px;
+    color: rgb(58, 58, 58);
+}
+.user_info span{
+    color: grey;
+    font-size: 15px;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn{
+   color: white; 
+   background-color: var(--button_color);
+   border: none;
+   padding: 10px 30px;
+   border-radius: 30px;
+   font-size: 16px;
+   cursor: pointer;
+}
+.btn:hover{
+    opacity: 0.9;
+}
+
+.user_profile{
+    background-color: var(--white_color);
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+.user_info{
+    margin: 0 0 0 10px;
+    line-height: 1.5;
+}
+.profile{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+form{
+    background-color: var(--form_input_color);
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    overflow: hidden;
+    padding: 0 15px;
+}
+form .input{
+    padding: 10px 10px 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+form .input::placeholder{
+    font-size: 15px;
+    color: rgb(173, 171, 171);
+}
+.search{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    cursor: pointer;
+
+}
+
+
+/* =======================End of General Design ============================== */
+
+/* ============================Header============================================= */
+body{
+    background: var(--form_input_color);
+}
+header{
+  background-color: var(--white_color);
+  padding: 8px 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  border-bottom: var(--border);
+}
+header .container form{
+    width: 500px;
+    border-radius: 50px;
+}
+header #profile_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 170px;
+}
+
+
+/* ===========================body====================================== */
+main{
+    margin-top: 70px ;
+    width: 100%;
+    position: relative;
+}
+main .container{
+    display: grid;
+    grid-template-columns: 18vw auto 20vw;
+    grid-gap: 1rem;
+    align-items: start;
+    position: relative;
+}
+main nav #left{
+    position: sticky;
+    top: 70px;
+}
+
+.left .user_profile{
+    background-color: var(--white_color);
+    border-radius: var(--container_radius);
+    padding: var(--containerPadding);
+    display: flex;
+    margin: 0 0 20px 0;
+    align-items: center;
+    border: 1px solid rgba(173, 172, 172, 0.5);
+}
+.left .btn{
+    width: 100%;
+    padding: 15px ;
+    border: var(--border);
+}
+
+small{
+    color: grey;
+}
+.user_profile .user_info small{
+    color: var(--light_grey);
+    font-size: 16px;
+}
+.left .side_bar{
+    background-color: var(--white_color);
+    margin: 0 0 20px 0;
+    border-radius: var(--container_radius);
+    overflow: hidden;
+}
+.side_bar{
+    border: var(--border);
+}
+.side_bar article {
+    display: flex;
+    padding: 20px 15px;
+    cursor: pointer;
+}
+.side_bar article p{
+    margin: 0 0 0 15px;
+    font-weight: 600;
+}
+.side_bar .active{
+    background-color: var(--light_grey);
+    border-left: 5px solid var(--button_color);
+}
+.side_bar .active p, .side_bar .active i{
+    color: var(--button_color);
+}
+.notification_bar{
+    position: absolute;
+    background-color: var(--white_color);
+    border-radius: var(--container_radius);
+    padding: var(--containerPadding);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    margin-left: 130px;
+    display: none;
+    width: max-content;
+}
+
+.notification_bar section{
+    display: flex;
+    font-weight: 100;
+    align-items: center;
+    padding: 10px 0 0;
+    cursor: pointer;
+    line-height: 1.5;
+}
+.notification_bar section p {
+    font-weight: 100;
+    display: block;
+}
+.notification_bar section p span{
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+main .container form{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+main .container form .btn{
+    width: 100%;
+}
+
+/* ==================================center============================== */
+main .center{
+    /* background-color: red; */
+    height: 100%;
+    border-radius: var(--container_radius);
+}
+main .center .people{
+    display: flex;
+    gap: .6rem;
+    width: 100%;
+}
+main .center .people article{
+    border-radius: var(--container_radius);
+    width: 80px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    padding: 5px;
+}
+.people article p{
+    color: white;
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+}
+
+.people article::before{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 70px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(transparent, rgb(27, 0, 27));
+}
+
+.people article:nth-child(1){
+    background: url(pictures/drake.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.people article:nth-child(2){
+    background: url(pictures/drake.webp);
+    background-position: center;
+    background-size: cover;
+}
+.people article:nth-child(3){
+    background: url(pictures/bear.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.people article:nth-child(4){
+    background: url(pictures/drake.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.people article:nth-child(5){
+    background: url(pictures/jumia.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.people article:nth-child(6){
+    background: url(pictures/drake.webp);
+    background-position: center;
+    background-size: cover;
+}
+
+.center .post{
+    margin: 10px 0;
+    display: flex;
+    background-color: white;
+    border-radius: var(--container_radius);
+    padding: 8px 10px ;
+    border: var(--border);
+}
+.center .post form{
+    background-color: transparent;
+}
+.center .post form button{
+    width: 20%;
+}
+
+/* ==========================post result ================================= */
+.center .post_result .result{
+    background-color: var(--white_color);
+    border-radius: var(--container_radius);
+    padding: 0 15px 15px ;
+    margin: 0 0 10px 0;
+    border: var(--border);
+}
+.center  .post_result .result .head_post{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    align-items: center;
+}
+.head_post .user_profile{
+    margin: 0 0 0 0;
+}
+
+.result .pic_post img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    border: var(--border);
+}
+
+.result .post_icons {
+    display: flex;
+    justify-content: space-between;
+    padding:  0 0 10px 0;
+}
+.result .comments{
+    display: flex;
+    align-items: center;
+}
+.result .comments .pics {
+    margin-right: 10px;
+}
+.result .comments .pics img{
+    border: 4px solid white;
+    width: 35px;
+    height: 35px;
+}
+.result .comments .pics :nth-child(2){
+    margin: 0 0  0 -15px;
+}
+.result .comments .pics :nth-child(3){
+    margin: 0 0  0 -15px;
+}
+.more_comments p{
+    line-height: 1.2;
+}
+
+
+/* =========================Right=========================== */
+
+main nav #right{
+    position: sticky;
+    top: 70px;
+    margin-bottom: 20px;
+}
+main #right .right{
+    /* background-color: green; */
+    height: 100%;
+    position: sticky;
+    top: 70px;
+}
+.right .messages_right, .request article{
+    background-color: white;
+    border-radius: var(--container_radius);
+    border: var(--border);
+    padding: var(--containerPadding);
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+.messages_right .top_desc{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+.messages_right .input_msg{
+    display: flex;
+    border-radius: 30px;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+
+.messages_right .msg_type .button{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 1rem; */
+    margin: 0 0 15px 0;
+}
+.messages_right .msg_type .button button{
+    width: 100%;
+    background: transparent;
+    border: none;
+    /* border-radius: 10px; */
+    font-weight: bold;
+    border-bottom: 4px solid var(--light_grey);
+    padding: 5px 0;
+    cursor: pointer;
+}
+.messages_right .msg_type .button button.active{
+    border-color: black;
+}
+
+.messages_right .msg_type .button button:hover{
+    background-color: var(--light_grey);
+}
+
+.request_container p{
+    color: grey;
+    padding: 10px 0;
+}
+
+.request div button:nth-child(2){
+    background: var(--light_grey);
+    color: black;
+    /* font-weight: bold; */
+}
+
+
+
+
+/* ======================Media querries=========================== */
+
+@media screen and (max-width: 1200px) {
+    .container{
+        width: 90%;
+    }
+    main .container{
+        grid-template-columns: 5rem auto 30vw;
+        gap: 1rem;
+    }
+    .left {
+        width: 5rem;
+        z-index: 5;
+    }
+    main .container .left .user_profile{
+        display: none;
+    }
+    .side_bar p{
+        display: none;
+    }
+    .left .btn{
+        display: none;
+    }
+}
+
+/* @media screen and (max-width: 990px) { */
+    /* header form { */
+        /* display: none; */
+    /* } */
+    /* main .container{ */
+        /* grid-template-columns: 0 auto 70vw; */
+        /* gap: 1rem; */
+    /* } */
+    /* main .container .left{ */
+        /* grid-column: 3/4; */
+        /* position: fixed; */
+        /* bottom: 0; */
+        /* right: 0; */
+    /* } */
+/*   */
+    /* .left .side_bar{ */
+        /* box-shadow: 0 0 15px rgba(0,0,0,0.5); */
+    /* } */
+/*      */
+/* } */
+/*  */
+/*   */
